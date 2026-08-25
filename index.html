@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Registry</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <div>
+        <div class="eyebrow">Student Registry</div>
+        <h1 id="page-title">Sign up / Log in</h1>
+      </div>
+      <button id="logout-btn" style="display:none">Log out</button>
+    </header>
+
+    <!-- AUTH PANEL -->
+    <div class="panel" id="auth-panel">
+      <div class="tabs">
+        <button id="tab-login" class="active">Log in</button>
+        <button id="tab-signup">Sign up</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="view active" id="view-login">
+        <label for="login-roll">Roll number</label>
+        <input id="login-roll" type="text" autocomplete="username" placeholder="e.g. 2023-0451" />
+
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" autocomplete="current-password" placeholder="Your password" />
+
+        <button class="primary" id="login-btn">Log in</button>
+        <div class="msg" id="login-msg"></div>
+      </div>
+
+      <!-- SIGNUP -->
+      <div class="view" id="view-signup">
+        <label for="signup-whatsapp">WhatsApp number</label>
+        <input id="signup-whatsapp" type="tel" placeholder="e.g. 8801XXXXXXXXX" />
+        <div class="hint">Include country code, digits only.</div>
+
+        <label for="signup-roll">Roll number</label>
+        <input id="signup-roll" type="text" placeholder="e.g. 2023-0451" />
+
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" autocomplete="new-password" placeholder="Choose a password (min 6 characters)" />
+
+        <label for="signup-password2">Confirm password</label>
+        <input id="signup-password2" type="password" autocomplete="new-password" placeholder="Repeat password" />
+
+        <button class="primary" id="signup-btn">Sign up</button>
+        <div class="msg" id="signup-msg"></div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="view" id="view-dashboard">
+      <div class="id-card">
+        <div class="eyebrow">Registered student</div>
+        <h2 id="card-name">—</h2>
+        <dl>
+          <dt>Roll no.</dt><dd id="card-roll">—</dd>
+          <dt>WhatsApp</dt><dd id="card-whatsapp">—</dd>
+          <dt>Father's name</dt><dd id="card-father">—</dd>
+        </dl>
+      </div>
+
+      <div class="panel">
+        <div class="eyebrow" style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)">Update your details</div>
+
+        <label for="edit-name">Name</label>
+        <input id="edit-name" type="text" placeholder="Your full name" />
+
+        <label for="edit-father">Father's name</label>
+        <input id="edit-father" type="text" placeholder="Father's full name" />
+
+        <label for="edit-whatsapp">WhatsApp number</label>
+        <input id="edit-whatsapp" type="tel" />
+
+        <label for="edit-roll">Roll number</label>
+        <input id="edit-roll" type="text" />
+
+        <button class="primary" id="save-btn">Save changes</button>
+        <div class="msg" id="dash-msg"></div>
+
+        <div class="section-title">Danger zone</div>
+        <div class="actions-row">
+          <button class="ghost" id="show-delete-btn">Delete my data</button>
+        </div>
+        <div class="confirm-box" id="delete-confirm" style="display:none">
+          <p>This permanently deletes your profile record (name, father's name, WhatsApp number and roll number). This can't be undone.</p>
+          <div class="actions-row">
+            <button class="ghost" id="cancel-delete-btn">Cancel</button>
+            <button class="danger" id="confirm-delete-btn">Yes, delete it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site">Roll number + password sign-in, protected by row-level security.</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
